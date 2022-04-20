@@ -1,4 +1,4 @@
-const url = '../docs/pdf-1.pdf';
+const url = '../docs/pdf-2.pdf';
 
 let pdfDoc = null,
   pageNum = 1,
@@ -25,6 +25,7 @@ const renderPage = num => {
           secondCanvas.height = viewport.height;
           secondCanvas.width = viewport.width;
           secondCanvas.style.border = '1px solid #000'
+          secondCanvas.style.opacity = 1
       
           const renderCtx = {
             canvasContext: ctx2,
@@ -56,7 +57,6 @@ const renderPage = num => {
 
         });
     }
-
     
     if(num % 2 === 0) {
         canvas.style.display = 'block'
@@ -91,14 +91,17 @@ const renderPage = num => {
     
       
         // Comment out for 2 pages rendering
-        let secondPage = num + 1
         
-
+        
+        if(num !== pdfDoc._pdfInfo.numPages) {
+          let secondPage = num + 1
             pdfDoc.getPage(secondPage).then(page => {
             // Set Scale
             const viewport = page.getViewport({ scale })
             secondCanvas.height = viewport.height
             secondCanvas.width = viewport.width
+            secondCanvas.style.opacity = 1
+            
         
             const renderCtx = {
                 canvasContext: ctx2,
@@ -118,10 +121,16 @@ const renderPage = num => {
             
             // Output current page 
             document.querySelector('#second-page-num').textContent = secondPage
-            })  
-        
-
-        
+            document.querySelector('.dash').style.display = 'block'
+            document.querySelector('#second-page-num').style.display = 'block'
+            })          
+        } else {
+          secondCanvas.style.opacity = 0
+          document.querySelector('.dash').style.display = 'none'
+          document.querySelector('#second-page-num').style.display = 'none'
+          document.querySelector('#page-num').style.marginRight = '4px'
+          document.querySelector('#page').textContent = 'Page'
+        }
     }
 };
 
@@ -202,17 +211,19 @@ function zoomIn() {
 
 // Move to page 1
 function skipToFirstPage() {
-    console.log(pageNum)
-
     pageNum = 1
     renderPage(1)
 }
 
 //Move to last page
 function skipToLastPage() {
-    console.log(pageNum)
-    pageNum = pdfDoc._pdfInfo.numPages -1
-    renderPage(pdfDoc._pdfInfo.numPages - 1)
+    if(pageNum !== pdfDoc._pdfInfo.numPages) {
+      pageNum = pdfDoc._pdfInfo.numPages -1
+      renderPage(pageNum)
+    } else {
+      pageNum = pdfDoc._pdfInfo.numPages
+      renderPage(pageNum)
+    }
 }
 
 // Button Events
