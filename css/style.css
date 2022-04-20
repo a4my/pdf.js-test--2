@@ -5,7 +5,10 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
-    /* overflow-x: hidden; */
+}
+
+body {
+    background-color: #837f7f;
 }
 
 .top-bar {
@@ -19,12 +22,6 @@
     justify-content: space-around; */
 }
 
-/* .box {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-} */
 
 .zoom-btn-box {
     display: flex;
@@ -83,11 +80,11 @@
 }
 
 #chevron-left {
-    margin-right: .5rem;
+    margin-right: .6rem;
 }
 
 #chevron-right {
-    margin-left: .5rem;
+    margin-left: .6rem;
 }
 
 .btn:hover, .btn-zoom:hover {
@@ -119,7 +116,7 @@
 }
 
 .page-info-box {
-    background-color: rgb(95, 93, 93);
+    background-color: #5f5d5d;
     border: 1px solid #1E8991;
     border-radius: 5px;
     width: 35%;
@@ -159,7 +156,7 @@
 }
 
 canvas {
-    margin-top: 10px;
+    margin-top: 20px;
     /* border: 1px solid #000; */
 }
 

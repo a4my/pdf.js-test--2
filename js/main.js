@@ -1,4 +1,4 @@
-const url = '../docs/pdf-2.pdf';
+const url = '../docs/pdf-3.pdf';
 
 let pdfDoc = null,
   pageNum = 1,
@@ -217,11 +217,12 @@ function skipToFirstPage() {
 
 //Move to last page
 function skipToLastPage() {
-    if(pageNum !== pdfDoc._pdfInfo.numPages) {
-      pageNum = pdfDoc._pdfInfo.numPages -1
+    if(pdfDoc._pdfInfo.numPages % 2 === 0) {
+      
+      pageNum = pdfDoc._pdfInfo.numPages 
       renderPage(pageNum)
-    } else {
-      pageNum = pdfDoc._pdfInfo.numPages
+    } else if(pdfDoc._pdfInfo.numPages % 2 !== 0) {
+      pageNum = pdfDoc._pdfInfo.numPages - 1
       renderPage(pageNum)
     }
 }
