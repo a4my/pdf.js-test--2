@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://kit.fontawesome.com/5f97c40230.js" crossorigin="anonymous"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css">
+    <title>PDF Viewer - One pager</title>
+</head>
+<body>
+
+    <div class="top-bar">
+    
+
+            <div class="zoom-btn-box">
+                <button class="btn-zoom" id="zoom-in">
+                    <!-- <i class="fas fa-circle-plus"></i> -->
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <button class="btn-zoom"  id="zoom-out">
+                    <!-- <i class="fas fa-circle-minus"></i> -->
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+
+
+            <div class="btn-box">
+                <button class="chevrons" id="chevron-left">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="btn" id="prev-page">
+                    <i class="fas fa-arrow-circle-left"  id="left-arrow"></i> Prev Page
+                </button>
+                <button class="btn" id="next-page">
+                    Next Page <i class="fas fa-arrow-circle-right" id="right-arrow"></i>
+                </button>
+                <button class="chevrons" id="chevron-right">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+    
+            <!-- <div class="page-info-box">
+                <span class="page-info">
+                    Pages <span id="page-num"></span> of <span id="page-count"></span>
+                </span>
+            </div> -->
+
+            <!-- Comment out for 2 pages rendering -->
+            <div class="page-info-container">
+
+                <div class="page-info-box">
+                    <span class="page-info">
+                        <span id="page">Pages</span> <span id="page-num"></span> <span class="dash">-</span> <span id="second-page-num"></span> of <span id="page-count"></span>
+                    </span>
+                </div>
+            </div>
+
+        
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="pdf-render"></canvas>
+        <!-- Comment out for 2 pages rendering -->
+        <canvas id="pdf-render-2"></canvas>
+    </div>
+
+    
+    <script src="https://kit.fontawesome.com/5f97c40230.js" crossorigin="anonymous"></script>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
