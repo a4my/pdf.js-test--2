@@ -136,6 +136,7 @@ body {
 }
 .dash {
     display: none;
+    margin-left: 4px;
 }
 
 #second-page-num {
