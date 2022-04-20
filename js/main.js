@@ -1,4 +1,4 @@
-const url = '../docs/pdf-3.pdf';
+const url = '../docs/pdf-1.pdf';
 
 let pdfDoc = null,
   pageNum = 1,
@@ -236,3 +236,16 @@ document.querySelector('#zoom-out').addEventListener('click', zoomOut)
 
 document.querySelector('#chevron-left').addEventListener('click', skipToFirstPage)
 document.querySelector('#chevron-right').addEventListener('click', skipToLastPage)
+
+// Loader
+const loaderContainer = document.querySelector('.loader-container')
+
+function loader() {
+  loaderContainer.classList.add('fade-out')
+}
+
+function fadeOut() {
+  setInterval(loader, 1200)
+}
+
+window.onload = fadeOut()
